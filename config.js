@@ -80,7 +80,7 @@ window.WEDDING_CONFIG = {
      Ví dụ link: index.html?name=QW5oIE5hbQ==   (= "Anh Nam")
      Lấy chuỗi mã hóa: mở Console trình duyệt gõ  btoa(unescape(encodeURIComponent("Anh Nam")))  */
   guest: {
-    defaultName: "",
+    defaultName: "Quý Khách",
     param: "name",
     base64: true,
   },
