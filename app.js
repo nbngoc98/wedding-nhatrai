@@ -160,7 +160,7 @@
   /* ---------- Chữ ---------- */
   function family(side) {
     return esc(side.label) + '<br><span style="font-weight: normal; font-size: 14px;">Bố: ' +
-           esc(side.father) + "<br>Mẹ: " + esc(side.mother) + "</span>";
+           esc(side.father) + "<br>Mẹ: " + esc(side.mother) + "<br>" + esc(side.address) + "</span>";
   }
 
   /* Dòng tên khách dưới "Trân trọng kính mời" (HEADLINE21): lấy từ ?name= (base64) hoặc defaultName */

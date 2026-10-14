@@ -40,12 +40,12 @@ window.WEDDING_CONFIG = {
   event: {
     date: "2026-12-06T11:30:00+07:00",
     lunarText: "(Tức ngày 28 tháng 10 năm Bính Ngọ)",   // âm lịch: tự ghi tay
-  },
+  },  
 
   /* ---------- 5. GIA ĐÌNH ---------- */
   families: {
-    groomSide: { label: "Nhà Trai", father: "Nguyễn Mạnh Hùng",    mother: "Nguyễn Thị Tố Nga" },
-    brideSide: { label: "Nhà Gái",  father: "Huỳnh Tấn Quang", mother: "Lê Thị Hằng" },
+    groomSide: { label: "Nhà Trai", father: "Nguyễn Mạnh Hùng",    mother: "Nguyễn Thị Tố Nga", address: "Tổ 15, KP. Phước Tấn, Phường Tân Hải, TP.HCM" },
+    brideSide: { label: "Nhà Gái",  father: "Huỳnh Tấn Quang", mother: "Lê Thị Hằng", address: "Quốc lộ 13, Phường Hiệp Bình, TP. HCM" },
   },
 
   /* ---------- 6. ĐỊA ĐIỂM ---------- */
@@ -115,7 +115,7 @@ window.WEDDING_CONFIG = {
     bridePhoto:    "assets/images/z6888086411462_e6d2e5a13ee8213498d76f9c59acac10-20250809012835-jo_ki.jpg", // ảnh cô dâu
     storyBanner:   "assets/images/z6888117023198_c24fe7d0cb4f28c899222a499b237729-20250809012834-9fkoy.jpg", // ảnh dưới câu chuyện
     venueFrame:    "assets/images/khung-1-20260627103609-ljqxv.png",                                     // khung phần địa điểm
-    venueLogo:     "assets/images/logo-1-20260627103708-dbcrb.png",                                      // logo phần địa điểm
+    venueLogo:     "assets/images/logo-nn.png",                                      // logo phần địa điểm
     calendarBg:    "assets/images/tai-xuong-2-20250809012834-fpjgn.jpg",                                 // nền lịch
     albumHero:     "assets/images/snapedit_1754670036384-20250809012838-xbxki.jpeg",                     // ảnh lớn đầu album
     albumThumb1:   "assets/images/snapedit_1754669957636-20250809012839-8oehf.jpeg",                     // 3 ảnh nhỏ bên phải
