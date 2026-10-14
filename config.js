@@ -9,7 +9,7 @@ window.WEDDING_CONFIG = {
 
   /* ---------- 1. THÔNG TIN TRANG (tab trình duyệt, chia sẻ) ---------- */
   meta: {
-    title: "Golden | Tựa ánh hoàng hôn, nhẹ nhàng và rực rỡ trong ngày trọng đại",
+    title: "Thiệp cưới Bảo Ngọc &amp; Hoàng Nhi",
     description: "Mỗi lời chúc, mỗi sự hiện diện đều là điều đáng quý mà chúng tôi luôn trân trọng. Cảm ơn vì bạn đã là một phần trong ngày đặc biệt này.",
     ogImage: "assets/images/snapedit_1754669975683-20250809035547-0jooj.jpeg",
     favicon: "assets/images/beige-and-brown-elegant-initials-wedding-logo-1-20251009123923-9zixk.png",
@@ -53,7 +53,7 @@ window.WEDDING_CONFIG = {
     intro: "tiệc cưới được tổ chức tại",
     name: "Sân Vận Động Tân Hòa",
     addressLines: ["Phường Tân Hải", "TP. Hồ Chí Minh"],
-    mapsUrl: "",          // link Google Maps cho nút "Chỉ đường" (để trống = không mở gì)
+    mapsUrl: "https://www.google.com/maps?q=10.5229430,107.0850450&entry=gps&shh=CAE&lucs=,94297699,94231188,94280568,100821559,47071704,94218641,94282134,100835694,94286869,100820247,100822504,100838877,121816461&g_ep=CAISEjI2LjQwLjMuOTg5Mjk1MzUwMBgAINeCAyp7LDk0Mjk3Njk5LDk0MjMxMTg4LDk0MjgwNTY4LDEwMDgyMTU1OSw0NzA3MTcwNCw5NDIxODY0MSw5NDI4MjEzNCwxMDA4MzU2OTQsOTQyODY4NjksMTAwODIwMjQ3LDEwMDgyMjUwNCwxMDA4Mzg4NzcsMTIxODE2NDYxQgJWTg%3D%3D&skid=b0d5b8c9-049c-42d1-885a-00564e5f65fa&g_st=ic&g_st=ic",          // link Google Maps cho nút "Chỉ đường" (để trống = không mở gì)
   },
 
   /* ---------- 7. CÂU CHUYỆN (mỗi phần tử = 1 dòng) ---------- */
