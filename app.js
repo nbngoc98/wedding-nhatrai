@@ -82,11 +82,26 @@
     t.innerHTML = html;
   }
 
+  /* Giải mã base64 → UTF-8 (chịu được base64url, thiếu "=", "+" bị URL đổi thành khoảng trắng) */
+  function decodeB64(s) {
+    var b = String(s).trim().replace(/ /g, "+").replace(/-/g, "+").replace(/_/g, "/");
+    while (b.length % 4) b += "=";
+    var bin = atob(b), bytes = new Uint8Array(bin.length);
+    for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+    return new TextDecoder("utf-8", { fatal: true }).decode(bytes);
+  }
+
+  var _guest;
   function guestName() {
-    try {
-      var v = new URLSearchParams(location.search).get(C.guestNameParam || "name");
-      return v && v.trim() ? v.trim() : "";
-    } catch (e) { return ""; }
+    if (_guest !== undefined) return _guest;
+    var G = C.guest || {}, raw = "";
+    try { raw = new URLSearchParams(location.search).get(G.param || "name") || ""; } catch (e) {}
+    raw = raw.trim();
+    if (raw && G.base64 !== false) {
+      try { raw = decodeB64(raw).trim(); }
+      catch (e) { console.warn("[Wedding] Tên khách không phải base64 hợp lệ, dùng nguyên văn.", e); }
+    }
+    return (_guest = raw);
   }
 
   /* ---------- CSS ghi đè (ảnh, màu, lịch). Dùng "body " để thắng độ ưu tiên của CSS gốc,
@@ -148,6 +163,14 @@
            esc(side.father) + "<br>Mẹ: " + esc(side.mother) + "</span>";
   }
 
+  /* Dòng tên khách dưới "Trân trọng kính mời" (HEADLINE21): lấy từ ?name= (base64) hoặc defaultName */
+  function applyGuest() {
+    var name = guestName() || (C.guest && C.guest.defaultName) || "";
+    var el = document.getElementById("HEADLINE21");
+    var t = el && (el.querySelector(".ladi-headline") || el);
+    if (t && t.textContent.trim() !== name) t.textContent = name;
+  }
+
   function applyTexts() {
     var cp = C.couple || {}, V = C.venue || {}, F = C.families || {};
     setText("HEADLINE142", esc(cp.groom) + " &amp; " + esc(cp.bride));
@@ -160,7 +183,7 @@
     if (EV) {
       setText("HEADLINE143", pad(EV.d) + " . " + pad(EV.mo) + " . " + EV.y);
       setText("HEADLINE213", pad(EV.d) + "." + pad(EV.mo) + "." + EV.y);
-      setText("HEADLINE19", EV.hh + ":" + EV.mm);
+      // setText("HEADLINE19", EV.hh + ":" + EV.mm);
       setText("HEADLINE20", WEEKDAYS[EV.dow]);
       setText("HEADLINE24", "Tháng " + EV.mo + " - " + MONTHS_EN[EV.mo - 1]);
       var col = (EV.firstDow + 6) % 7;
@@ -192,7 +215,7 @@
 
     if (C.footer && C.footer.brand) setText("HEADLINE103", esc(C.footer.brand));
 
-    setText("HEADLINE21", esc(guestName() || C.guestDefaultName || "Quý khách"));
+    applyGuest();
 
     // Các đoạn chữ tự do trong config.texts (cho phép HTML) – áp sau cùng để ghi đè được tất cả
     var T = C.texts || {};
@@ -439,6 +462,8 @@
 
   /* ========================== BƯỚC 3: KHỞI ĐỘNG ========================== */
   function init() {
+    applyGuest();
+    window.addEventListener("load", function () { applyGuest(); setTimeout(applyGuest, 1500); });  // phòng LadiPage ghi đè lại
     startCountdown();
     setupMusic();
     fillGuestInputs();

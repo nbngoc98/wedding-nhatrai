@@ -35,10 +35,10 @@ window.WEDDING_CONFIG = {
 
   /* ---------- 4. NGÀY GIỜ ----------
      Chỉ cần sửa `date` (YYYY-MM-DDTHH:mm:00+07:00). Các chỗ sau tự suy ra:
-     "06 . 12 . 2026", "06.12.2026", "THỨ BẢY", "11:00", lịch tháng,
+     "02 . 11 . 2025", "02.11.2025", "CHỦ NHẬT", "10:00", lịch tháng,
      trái tim đánh dấu ngày cưới, đồng hồ đếm ngược. */
   event: {
-    date: "2026-12-06T11:00:00+07:00",
+    date: "2026-12-06T11:30:00+07:00",
     lunarText: "(Tức ngày 28 tháng 10 năm Bính Ngọ)",   // âm lịch: tự ghi tay
   },
 
@@ -66,15 +66,26 @@ window.WEDDING_CONFIG = {
   /* ---------- 8. TIMELINE (đúng 6 mục) ---------- */
   timeline: [
     { time: "10:30", label: "Đón khách" },
-    { time: "11:00", label: "Khai tiệc" },
-    { time: "11:30", label: "Lễ Thành Hôn" },
+    { time: "11:30", label: "Khai tiệc" },
   ],
 
   /* ---------- 9. DRESS CODE (đúng 5 màu) ---------- */
   dressCode: ["#f1f3f4", "#fff6d3", "#000000", "#ffffff", "#9E8130"],
 
+  /* ---------- 9b. KHÁCH MỜI ----------
+     Tên khách hiện ở "Trân trọng kính mời ...", màn hình mở thiệp và ô tên trong form.
+     - defaultName: tên hiện khi link KHÔNG có tham số (ghi rõ tên người được mời, vd "Anh Nam & gia đình").
+     - param: tên tham số trên URL.
+     - base64: true = tên trong URL được mã hóa base64 (UTF-8, hỗ trợ cả base64url); false = chữ thường.
+     Ví dụ link: index.html?name=QW5oIE5hbQ==   (= "Anh Nam")
+     Lấy chuỗi mã hóa: mở Console trình duyệt gõ  btoa(unescape(encodeURIComponent("Anh Nam")))  */
+  guest: {
+    defaultName: "",
+    param: "name",
+    base64: true,
+  },
+
   /* ---------- 10. CÁC ĐOẠN CHỮ KHÁC (key = id phần tử LadiPage, cho phép HTML) ---------- */
-  guestDefaultName: "Quý khách",   // hiện khi link không có ?name=...
   texts: {
     HEADLINE140: "We Get",
     HEADLINE141: "Married",
@@ -170,6 +181,5 @@ window.WEDDING_CONFIG = {
   },
 
   /* ---------- 17. KHÁC ---------- */
-  guestNameParam: "name",             // link dạng  ...?name=Anh%20Nam
   protectContent: true,               // chặn chuột phải, F12, Ctrl+U/S, bôi đen chữ
 };
