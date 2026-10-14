@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <script src="config.js"></script>
     <script src="app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
     <meta http-equiv="Cache-Control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Expires" content="-1">
@@ -5235,7 +5237,8 @@
                                         </svg></div>
                                 </div>
                                 <div id="HEADLINE23" class='ladi-element'>
-                                    <a href="https://www.google.com/maps?q=10.5229430,107.0850450&entry=gps&shh=CAE&lucs=,94297699,94231188,94280568,100821559,47071704,94218641,94282134,100835694,94286869,100820247,100822504,100838877,121816461&g_ep=CAISEjI2LjQwLjMuOTg5Mjk1MzUwMBgAINeCAyp7LDk0Mjk3Njk5LDk0MjMxMTg4LDk0MjgwNTY4LDEwMDgyMTU1OSw0NzA3MTcwNCw5NDIxODY0MSw5NDI4MjEzNCwxMDA4MzU2OTQsOTQyODY4NjksMTAwODIwMjQ3LDEwMDgyMjUwNCwxMDA4Mzg4NzcsMTIxODE2NDYxQgJWTg%3D%3D&skid=b0d5b8c9-049c-42d1-885a-00564e5f65fa&g_st=ic&g_st=ic" target="_blank" class='ladi-headline ladi-transition'>Chỉ đường<br></a>
+                                    <a href="https://www.google.com/maps?q=10.5229430,107.0850450&entry=gps&shh=CAE&lucs=,94297699,94231188,94280568,100821559,47071704,94218641,94282134,100835694,94286869,100820247,100822504,100838877,121816461&g_ep=CAISEjI2LjQwLjMuOTg5Mjk1MzUwMBgAINeCAyp7LDk0Mjk3Njk5LDk0MjMxMTg4LDk0MjgwNTY4LDEwMDgyMTU1OSw0NzA3MTcwNCw5NDIxODY0MSw5NDI4MjEzNCwxMDA4MzU2OTQsOTQyODY4NjksMTAwODIwMjQ3LDEwMDgyMjUwNCwxMDA4Mzg4NzcsMTIxODE2NDYxQgJWTg%3D%3D&skid=b0d5b8c9-049c-42d1-885a-00564e5f65fa&g_st=ic&g_st=ic"
+                                        target="_blank" class='ladi-headline ladi-transition'>Chỉ đường<br></a>
                                 </div>
                             </div>
                         </div>
@@ -6799,6 +6802,105 @@
     <script>window.WeddingApp && window.WeddingApp.applyDom();</script>
     <script id="script_ladipage_run"
         type="text/javascript">(function () { var run = function () { if (typeof window.LadiPageScript == "undefined" || typeof window.ladi == "undefined" || window.ladi == undefined) { setTimeout(run, 100); return; } window.LadiPageApp = window.LadiPageApp || new window.LadiPageAppV2(); window.LadiPageScript.runtime.ladipage_id = '6896a21078103a00125de3a9'; window.LadiPageScript.runtime.publish_platform = 'LADIPAGEDNS'; window.LadiPageScript.runtime.is_mobile_only = true; window.LadiPageScript.runtime.version = '1786005300102'; window.LadiPageScript.runtime.cdn_url = 'https://w.ladicdn.com/v5/source/'; window.LadiPageScript.runtime.DOMAIN_SET_COOKIE = ["nhacohy.vn"]; window.LadiPageScript.runtime.DOMAIN_FREE = ["preview.ldpdemo.com", "ldp.page"]; window.LadiPageScript.runtime.bodyFontSize = 12; window.LadiPageScript.runtime.store_id = "689218c23c46d40012eac1e2"; window.LadiPageScript.runtime.store_ladiuid = "689218c05120b6001245e6cd"; window.LadiPageScript.runtime.time_zone = 7; window.LadiPageScript.runtime.currency = "VND"; window.LadiPageScript.runtime.convert_replace_str = true; window.LadiPageScript.runtime.desktop_width = 960; window.LadiPageScript.runtime.mobile_width = 420; window.LadiPageScript.runtime.formdata = true; window.LadiPageScript.runtime.tracking_button_click = true; window.LadiPageScript.runtime.publish_time = 1786030049534; window.LadiPageScript.runtime.lang = "vi"; window.LadiPageScript.run(true); window.LadiPageScript.runEventScroll(); }; run(); })();</script>
+
+    <script>
+        // 1. Thay bằng firebaseConfig của project bạn
+        const firebaseConfig = {
+            apiKey: "AIzaSyA8GN4-0TtqSWSN2H-SUQtSwq9x7KVNJ_k",
+            authDomain: "wedding-wishes-3c5c0.firebaseapp.com",
+            projectId: "wedding-wishes-3c5c0",
+            storageBucket: "wedding-wishes-3c5c0.firebasestorage.app",
+            messagingSenderId: "109536202485",
+            appId: "1:109536202485:web:f0597da689b0186595ffbc",
+            measurementId: "G-XNYZNERPTZ"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+        const wishesRef = db.collection("wishes");
+
+        const list = document.getElementById("wish-list");
+        const btn = document.getElementById("sendWishBtn");
+
+        // 2. Tải và tự cập nhật danh sách lời chúc
+        wishesRef.orderBy("createdAt", "desc").onSnapshot(
+            (snapshot) => {
+                list.replaceChildren();
+
+                if (snapshot.empty) {
+                    list.textContent = "Hãy là người đầu tiên gửi lời chúc 💌";
+                    return;
+                }
+
+                snapshot.forEach((doc) => {
+                    const wish = doc.data();
+                    const item = document.createElement("div");
+                    item.className = "wish-item";
+
+                    const name = document.createElement("strong");
+                    name.textContent = wish.name || "Khách mời";
+
+                    const message = document.createElement("span");
+                    message.textContent = wish.message || "";
+
+                    item.append(name, message);
+                    list.appendChild(item);
+                });
+            },
+            (error) => {
+                console.error("Lỗi tải lời chúc:", error);
+                list.textContent = "Không thể tải lời chúc. Vui lòng thử lại sau.";
+            }
+        );
+
+        // 3. Gửi lời chúc lên Firestore
+        async function sendWish() {
+            const nameInput = document.getElementById("name");
+            const messageInput = document.getElementById("message");
+
+            const name = nameInput.value.trim();
+            const message = messageInput.value.trim();
+
+            if (!name || !message) {
+                alert("Vui lòng nhập đầy đủ tên và lời chúc.");
+                return;
+            }
+
+            if (name.length > 100 || message.length > 1000) {
+                alert("Tên tối đa 100 ký tự, lời chúc tối đa 1000 ký tự.");
+                return;
+            }
+
+            btn.disabled = true;
+            btn.textContent = "⏳ Đang gửi...";
+
+            try {
+                await wishesRef.add({
+                    name,
+                    message,
+                    createdAt: firebase.firestore.FieldValue.serverTimestamp()
+                });
+
+                nameInput.value = "";
+                messageInput.value = "";
+
+                showFireworks();
+                alert("Gửi lời chúc thành công 💌");
+            } catch (error) {
+                console.error("Lỗi gửi lời chúc:", error);
+                alert("Gửi chưa thành công. Vui lòng thử lại.");
+            } finally {
+                btn.disabled = false;
+                btn.textContent = "💌 Gửi";
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            btn.addEventListener("click", sendWish);
+        });
+
+        // Giữ nguyên hàm showFireworks() từ code hiện tại
+    </script>
 
 </body>
 
