@@ -1,185 +1,272 @@
-/* ==========================================================================
-   CẤU HÌNH THIỆP CƯỚI  –  CHỈ CẦN SỬA FILE NÀY
-   --------------------------------------------------------------------------
-   - Thay thông tin, ảnh, nhạc, link tại đây rồi lưu lại, không cần đụng vào HTML.
-   - Đường dẫn ảnh: để trong thư mục assets/images/ rồi ghi đúng tên file,
-     hoặc dán link https://... đều được.
-   ========================================================================== */
+/* =====================================================================
+   CONFIG THIỆP CƯỚI  —  CHỈ CẦN SỬA FILE NÀY
+   ---------------------------------------------------------------------
+   - Dùng chung cho index.html (trang bìa) và content.html (nội dung).
+   - Để trống ("") một mục ảnh/chữ  => giữ nguyên giá trị gốc trong thiệp.
+   - Xuống dòng trong chữ: dùng \n
+   - Ảnh: dán link https://... hoặc đường dẫn file, ví dụ "images/anh1.jpg"
+   ===================================================================== */
 window.WEDDING_CONFIG = {
 
-  /* ---------- 1. THÔNG TIN TRANG (tab trình duyệt, chia sẻ) ---------- */
-  meta: {
-    title: "Thiệp cưới Bảo Ngọc &amp; Hoàng Nhi",
-    description: "Mỗi lời chúc, mỗi sự hiện diện đều là điều đáng quý mà chúng tôi luôn trân trọng. Cảm ơn vì bạn đã là một phần trong ngày đặc biệt này.",
-    ogImage: "assets/images/snapedit_1754669975683-20250809035547-0jooj.jpeg",
-    favicon: "assets/images/beige-and-brown-elegant-initials-wedding-logo-1-20251009123923-9zixk.png",
-    // Lưu ý: Facebook/Zalo không chạy JS, muốn đổi preview khi chia sẻ link
-    // thì vẫn phải sửa thẻ <meta og:*> trong index.html.
-  },
-
-  /* ---------- 2. MÀU CHỦ ĐẠO (dùng cho nút nhạc + màn hình mở thiệp) ---------- */
-  theme: {
-    primary: "#9E8130",
-    accent: "#d4af37",
-    introText: "#f5e6c8",
-    doorColor2: "#3b0000",     // màu cuối của gradient cánh cửa mở thiệp
-  },
-
-  /* ---------- 3. CÔ DÂU – CHÚ RỂ ---------- */
-  couple: {
-    groom: "Bảo Ngọc",
-    bride: "Hoàng Nhi",
-    groomLabel: "Chú rể",
-    brideLabel: "Cô dâu",
-  },
-
-  /* ---------- 4. NGÀY GIỜ ----------
-     Chỉ cần sửa `date` (YYYY-MM-DDTHH:mm:00+07:00). Các chỗ sau tự suy ra:
-     "02 . 11 . 2025", "02.11.2025", "CHỦ NHẬT", "10:00", lịch tháng,
-     trái tim đánh dấu ngày cưới, đồng hồ đếm ngược. */
-  event: {
-    date: "2026-12-06T11:30:00+07:00",
-    lunarText: "(Tức ngày 28 tháng 10 năm Bính Ngọ)",   // âm lịch: tự ghi tay
-  },  
-
-  /* ---------- 5. GIA ĐÌNH ---------- */
-  families: {
-    groomSide: { label: "Nhà Trai", father: "Nguyễn Mạnh Hùng",    mother: "Nguyễn Thị Tố Nga", address: "Tổ 15, KP. Phước Tấn, Phường Tân Hải, TP.HCM" },
-    brideSide: { label: "Nhà Gái",  father: "Huỳnh Tấn Quang", mother: "Lê Thị Hằng", address: "Quốc lộ 13, Phường Hiệp Bình, TP. HCM" },
-  },
-
-  /* ---------- 6. ĐỊA ĐIỂM ---------- */
-  venue: {
-    intro: "tiệc cưới được tổ chức tại",
-    name: "Sân Vận Động Tân Hòa",
-    addressLines: ["Phường Tân Hải", "TP. Hồ Chí Minh"],
-    mapsUrl: "https://www.google.com/maps?q=10.5229430,107.0850450&entry=gps&shh=CAE&lucs=,94297699,94231188,94280568,100821559,47071704,94218641,94282134,100835694,94286869,100820247,100822504,100838877,121816461&g_ep=CAISEjI2LjQwLjMuOTg5Mjk1MzUwMBgAINeCAyp7LDk0Mjk3Njk5LDk0MjMxMTg4LDk0MjgwNTY4LDEwMDgyMTU1OSw0NzA3MTcwNCw5NDIxODY0MSw5NDI4MjEzNCwxMDA4MzU2OTQsOTQyODY4NjksMTAwODIwMjQ3LDEwMDgyMjUwNCwxMDA4Mzg4NzcsMTIxODE2NDYxQgJWTg%3D%3D&skid=b0d5b8c9-049c-42d1-885a-00564e5f65fa&g_st=ic&g_st=ic",          // link Google Maps cho nút "Chỉ đường" (để trống = không mở gì)
-  },
-
-  /* ---------- 7. CÂU CHUYỆN (mỗi phần tử = 1 dòng) ---------- */
-  story: [
-    "Chúng tôi gặp nhau như một sự tình cờ, nhưng lại ở bên nhau như một điều đã được định sẵn.",
-    "Từ những tin nhắn vu vơ, những buổi hẹn hò giản dị, tình cảm lớn lên từng ngày.",
-    "Và giờ đây, chúng tôi quyết định cùng nhau viết tiếp câu chuyện ấy, bằng một đám cưới trọn vẹn yêu thương.",
-  ],
-
-  /* ---------- 8. TIMELINE (đúng 6 mục) ---------- */
-  timeline: [
-    { time: "10:30", label: "Đón khách" },
-    { time: "11:30", label: "Khai tiệc" },
-  ],
-
-  /* ---------- 9. DRESS CODE (đúng 5 màu) ---------- */
-  dressCode: ["#f1f3f4", "#fff6d3", "#000000", "#ffffff", "#9E8130"],
-
-  /* ---------- 9b. KHÁCH MỜI ----------
-     Tên khách hiện ở "Trân trọng kính mời ...", màn hình mở thiệp và ô tên trong form.
-     - defaultName: tên hiện khi link KHÔNG có tham số (ghi rõ tên người được mời, vd "Anh Nam & gia đình").
-     - param: tên tham số trên URL.
-     - base64: true = tên trong URL được mã hóa base64 (UTF-8, hỗ trợ cả base64url); false = chữ thường.
-     Ví dụ link: index.html?name=QW5oIE5hbQ==   (= "Anh Nam")
-     Lấy chuỗi mã hóa: mở Console trình duyệt gõ  btoa(unescape(encodeURIComponent("Anh Nam")))  */
+  /* ===================================================================
+     1. KHÁCH MỜI  (tên hiển thị ở trang bìa, thay cho "Mai Anh")
+     -------------------------------------------------------------------
+     Gửi link theo mẫu:
+        https://domain.com/index.html?name=Mai%20Anh
+        https://domain.com/index.html?name=Anh+Tuấn
+     Không có ?name=...  =>  hiện defaultName ("Quý Khách")
+     =================================================================== */
   guest: {
-    defaultName: "Quý Khách",
-    param: "name",
-    base64: true,
+    paramName: "name",                 // tên tham số trên URL
+    aliases: ["ten", "guest", "to"],   // các tên tham số khác cũng được chấp nhận
+    defaultName: "Quý Khách",          // khi URL không có tên
+    maxLength: 60,                     // cắt bớt nếu tên quá dài
+    autoShrink: true,                  // tên dài thì tự thu nhỏ chữ cho vừa khung
+    prefillRsvpName: true              // tự điền tên khách vào ô "Tên của bạn" ở form xác nhận
   },
 
-  /* ---------- 10. CÁC ĐOẠN CHỮ KHÁC (key = id phần tử LadiPage, cho phép HTML) ---------- */
-  texts: {
-    HEADLINE140: "We Get",
-    HEADLINE141: "Married",
-    HEADLINE113: "Trân trọng kính mời",
-    HEADLINE114: "Đến dự buổi lễ cưới của",
-    HEADLINE121: "Timeline",
-    HEADLINE122: "Dress code",
-    HEADLINE123: "Mặc đúng màu sắc để lên hình được đẹp hơn nha",
-    HEADLINE104: "Gửi Lời Chúc",
-    HEADLINE105: "Mỗi lời chúc, mỗi sự hiện diện đều là điều đáng quý mà chúng tôi luôn trân trọng. Cảm ơn vì bạn đã là một phần trong ngày đặc biệt này.",
-    HEADLINE84:  "Beautiful",
-    HEADLINE85:  "chapter",
-    HEADLINE86:  "Từng khoảnh khắc bên nhau đều là một mảnh ghép quý giá trong câu chuyện tình yêu của chúng tôi. Hãy cùng chúng tôi ngắm nhìn lại những hình ảnh đã lưu giữ trọn vẹn niềm vui, tiếng cười và cả những giây phút lặng yên đầy yêu thương.",
-    HEADLINE87:  "Mỗi lời hồi đáp của bạn chính là một niềm vui lớn đối với chúng tôi. Hãy nhấn xác nhận để cùng chung vui nhé!",
-    HEADLINE94:  "Countdown",
-    HEADLINE99:  "Chúng tôi chân thành cảm ơn gia đình, bạn bè và những người thân yêu đã đồng hành và gửi lời chúc tốt đẹp.<br>Sự hiện diện của bạn là niềm hạnh phúc lớn nhất với chúng tôi.",
-    HEADLINE100: "Thank you!",
-    HEADLINE101: "Cảm ơn bạn đã xác nhận tham dự!<br>Chúng tôi rất vui và háo hức được gặp bạn trong ngày trọng đại này.<br>Hãy cùng nhau lưu giữ những khoảnh khắc thật đẹp nhé!",
-    HEADLINE106: "Hộp mừng cưới",
+  /* ===================================================================
+     2. TÊN TRANG / TIÊU ĐỀ TAB TRÌNH DUYỆT
+     Lưu ý: ảnh/mô tả khi chia sẻ qua Zalo/Facebook được đọc từ thẻ <meta>
+     trong file HTML (bot không chạy JavaScript), nên muốn đổi phần đó
+     phải sửa thẻ og:* trong <head> của HTML.
+     =================================================================== */
+  pages: {
+    cover:   "index.html",             // trang bìa
+    content: "content.html"            // trang nội dung (nút trên bìa sẽ mở trang này)
+  },
+  site: {
+    cover:   { title: "Bảo Ngọc & Hoàng Nhi Wedding", favicon: "" },
+    content: { title: "Bảo Ngọc & Hoàng Nhi Wedding", favicon: "" }
   },
 
-  /* ---------- 11. ẢNH ---------- */
-  images: {
-    hero:          "assets/images/tai-xuong-20250809012834-nl0rs.jpg",                                   // ảnh bìa đầu trang
-    invitationBg:  "assets/images/tai-xuong-3-20250809013906-e7pns.jpg",                                 // nền phần lời mời
-    groomPhoto:    "assets/images/betterimage_1754671511212-20250809012834-ygz08.jpeg",                  // ảnh chú rể
-    bridePhoto:    "assets/images/z6888086411462_e6d2e5a13ee8213498d76f9c59acac10-20250809012835-jo_ki.jpg", // ảnh cô dâu
-    storyBanner:   "assets/images/z6888117023198_c24fe7d0cb4f28c899222a499b237729-20250809012834-9fkoy.jpg", // ảnh dưới câu chuyện
-    venueFrame:    "assets/images/khung-1-20260627103609-ljqxv.png",                                     // khung phần địa điểm
-    venueLogo:     "assets/images/logo-nn.png",                                      // logo phần địa điểm
-    calendarBg:    "assets/images/tai-xuong-2-20250809012834-fpjgn.jpg",                                 // nền lịch
-    albumHero:     "assets/images/snapedit_1754670036384-20250809012838-xbxki.jpeg",                     // ảnh lớn đầu album
-    albumThumb1:   "assets/images/snapedit_1754669957636-20250809012839-8oehf.jpeg",                     // 3 ảnh nhỏ bên phải
-    albumThumb2:   "assets/images/z6888086411462_e6d2e5a13ee8213498d76f9c59acac10-20250809012835-jo_ki-45b8b8.jpg",
-    albumThumb3:   "assets/images/z6888086390173_724fd2f9e818a30255fd5376535e6323-20250809012835-wcp3l.jpg",
-    thankYouBg:    "assets/images/z6888086390153_6ad418f0bd3ef4e64e5141b55a7f606c-20250809012838-3nxjw-b771be.jpg",
-    thankYouPopup: "assets/images/z6888117029043_537cea14c5d7211be8130d3285da74cd-20250809012834-pe7nn-7bdbbc.jpg",
-    rsvpGroom:     "assets/images/betterimage_1754671511212-20250809012834-ygz08-c54c61.jpeg",           // ảnh chọn "Chú Rể" trong form
-    rsvpBride:     "assets/images/tai-xuong-1-20250809012834-bywlo-ecbf68.jpg",                          // ảnh chọn "Cô Dâu" trong form
+  /* ===================================================================
+     3. CÔ DÂU – CHÚ RỂ – GIA ĐÌNH
+     =================================================================== */
+  couple: {
+    groom: {
+      name: "Bảo Ngọc",
+      role: "Chú rể",
+      father: "Ông. Nguyễn Mạnh Hùng",
+      mother: "Bà. Nguyễn Thị Tố Nga"
+    },
+    bride: {
+      name: "Hoàng Nhi",
+      role: "Cô dâu",
+      father: "Ông. Huỳnh Tấn Quang",
+      mother: "Bà. Lê Thị Hằng"
+    },
+    groomFamilyLabel: "nhà trai",
+    brideFamilyLabel: "nhà gái"
   },
 
-  // Thư viện ảnh (số lượng giữ nguyên 14; muốn thêm/bớt phải sửa HTML gallery)
-  gallery: [
-    "assets/images/z6888117023198_c24fe7d0cb4f28c899222a499b237729-20250809012834-9fkoy-152ef1.jpg",
-    "assets/images/tai-xuong-2-20250809012834-fpjgn-4ef087.jpg",
-    "assets/images/tai-xuong-20250809012834-nl0rs-5bc344.jpg",
-    "assets/images/tai-xuong-1-20250809012834-bywlo.jpg",
-    "assets/images/snapedit_1754669975683-20250809012839-rumax.jpeg",
-    "assets/images/z6888086390173_724fd2f9e818a30255fd5376535e6323-20250809012835-wcp3l-27baf2.jpg",
-    "assets/images/z6888086411462_e6d2e5a13ee8213498d76f9c59acac10-20250809012835-jo_ki-8c86fd.jpg",
-    "assets/images/z6888086411495_2cdf05ca7fc44fab7677126b5bf0e43e-20250809012835-g3u2m.jpg",
-    "assets/images/z6888086390153_6ad418f0bd3ef4e64e5141b55a7f606c-20250809012838-3nxjw.jpg",
-    "assets/images/snapedit_1754670036384-20250809012838-xbxki-1d51c0.jpeg",
-    "assets/images/betterimage_1754671494992-20250809012834-m-edg.jpeg",
-    "assets/images/betterimage_1754671511212-20250809012834-ygz08-c1fdc2.jpeg",
-    "assets/images/z6888117029043_537cea14c5d7211be8130d3285da74cd-20250809012834-pe7nn.jpg",
-    "assets/images/snapedit_1754669957636-20250809012839-8oehf-0af852.jpeg",
+  /* ===================================================================
+     4. NGÀY GIỜ – ĐỊA ĐIỂM
+     Ngày tháng năm, thứ trong tuần, lịch tuần "Save the date"
+     đều TỰ SINH từ event.date.
+     =================================================================== */
+  event: {
+    date: "2026-12-06",                // YYYY-MM-DD
+    time: "11:30",                     // giờ ghi trên thiệp
+    lunarDate: "( Tức ngày 28 tháng 10 năm Bính Ngọ )",
+    venueLabel: "Sân Vận Động Tân Hòa",
+    address: "Phường Tân Hải, TP. Hồ Chí Minh",
+    mapLink: "https://maps.app.goo.gl/1Xue7gxabbVfxvGZ9",
+    // Thời điểm đồng hồ đếm ngược chạy tới (giờ Việt Nam +07:00)
+    countdownTo: "2026-12-06T00:00:00+07:00"
+  },
+
+  /* ===================================================================
+     5. TIMELINE  (xếp từ trên xuống dưới, tối đa 4 mục)
+     =================================================================== */
+  timeline: [
+    { time: "10:30",  title: "Đón Khách" },
+    { time: "11:30", title: "Lễ Nghi" },
+    { time: "11:45", title: "Khai tiệc" },
+    // { time: "21:30", title: "ÂM NHẠC" }
   ],
 
-  /* ---------- 12. NHẠC NỀN ---------- */
+  
+  /* ===================================================================
+     6. DRESS CODE  (4 ô màu, từ trái sang phải)
+     =================================================================== */
+  dressCode: ["#000000", "#840b1d", "#705628", "#e1d5bf"],
+ 
+  /* ===================================================================
+     7. ẢNH CỦA CẶP ĐÔI
+     =================================================================== */
+  photos: {
+    // --- trang nội dung ---
+    heroPolaroidTop:     "image/BAO_6453.jpg",  // ảnh nghiêng trên cùng (bìa)
+    heroPolaroidBottom:  "image/BAO_6322.jpg",   // ảnh nghiêng dưới (bìa)
+    bannerWeAre:         "image/BAO_6453.jpg",   // nền "We are Getting Married"
+    bannerWhereLove:     "image/BAO_6183.jpg",   // nền "Where Love Begins"
+    fullPhoto:           "image/BAO_5973.jpg",   // ảnh lớn ngay sau Timeline
+    saveTheDateFrame:    "image/BAO_5924.jpg",   // ảnh trong khung ở mục Save the date
+    bridePhoto:          "image/BAO_6769.jpg",   // ảnh cô dâu
+    groomPhoto:          "image/BAO_8381.jpg",   // ảnh chú rể
+    thankYouPhoto:       "image/BAO_7488.jpg",   // ảnh phần "Thank you!" (cuối trang)
+    popupPhoto:          "image/BAO_7488.jpg",   // ảnh popup sau khi gửi xác nhận
+ 
+    // --- album: thêm / bớt bao nhiêu ảnh tuỳ ý (mỗi dòng 1 ảnh) ---
+    gallery: [
+      "image/BAO_6453.jpg",
+      "image/BAO_6322.jpg",
+      "image/BAO_6183.jpg",
+      "image/BAO_5973.jpg",
+      "image/BAO_5924.jpg",
+      "image/BAO_6769.jpg",
+      "image/BAO_8381.jpg",
+      "image/BAO_7488.jpg"
+    ]
+  },
+ 
+  /* ===================================================================
+     8. NHẠC NỀN  (trang nội dung)
+     Có thể thêm nhiều bài, hết bài sẽ chuyển bài kế tiếp rồi quay vòng.
+     =================================================================== */
   music: {
-    src: "https://cdn.jsdelivr.net/gh/beckneee-dev/mp3-hosting/Lana Del Rey - Young And Beautiful.mp3",
-    // Hoặc file nội bộ: "assets/music/bai-hat.mp3"
-    autoStartOnFirstTouch: true,   // tự phát khi khách chạm/click lần đầu
-    volume: 1,                     // 0 → 1
-  },
-
-  /* ---------- 13. MỪNG CƯỚI (QR + số tài khoản) ---------- */
-  gifts: {
-    groom: { qrImage: "", accountNumber: "" },   // ảnh QR + số tài khoản chú rể
-    bride: { qrImage: "", accountNumber: "" },   // ảnh QR + số tài khoản cô dâu
-  },
-
-  /* ---------- 14. CHÂN TRANG ---------- */
-  footer: {
-    brand: "Thiệp cưới online - Nhà Có Hỷ",
-    tiktok:   "https://www.tiktok.com/@nhacohyonline",
-    facebook: "https://www.facebook.com/thiepcuoionlinenhacohy",
-    zalo:     "https://zalo.me/0397336324",
-  },
-
-  /* ---------- 15. LỜI CHÚC (Google Apps Script) ---------- */
-  wishApiUrl: "https://script.google.com/macros/s/AKfycbzxzPLM6pqpWh_eGME3JnYHbmveRaTSle17xcivQjliJBAOhUcE1ZVbYtsiW6_HFVtQ/exec",
-
-  /* ---------- 16. MÀN HÌNH MỞ THIỆP ---------- */
-  intro: {
     enabled: true,
-    greeting: "Xin chào",             // thêm ", <tên khách>" nếu link có ?name=
-    subtitle: "Đang mở thiệp cưới của",
-    message: "Vui lòng chờ...",
-    autoOpenDelay: 4200,              // ms
-    slideDirection: "right",          // "left" | "right"
+    playlist: [
+      "https://camcui.vn/bai417.mp3"
+      // , "music/bai2.mp3"
+    ],
+    volume: 1                          // 0 → 1
   },
-
-  /* ---------- 17. KHÁC ---------- */
-  protectContent: true,               // chặn chuột phải, F12, Ctrl+U/S, bôi đen chữ
+ 
+  /* ===================================================================
+     9. LIÊN KẾT MẠNG XÃ HỘI (chân trang). Để "" để ẩn biểu tượng.
+     =================================================================== */
+  social: {
+    facebook: "https://www.facebook.com/profile.php?id=61557384251600",
+    tiktok:   "https://www.tiktok.com/@thiepcuoi.online?is_from_webapp=1&sender_device=pc",
+    zalo:     "https://zalo.me/0968378902"
+  },
+ 
+  /* ===================================================================
+     10. LỜI CHÚC (Google Apps Script)
+     weddingId: mã để tách lời chúc của từng thiệp trong cùng 1 sheet.
+     =================================================================== */
+  wishes: {
+    weddingId: "ivy",
+    api: "https://script.google.com/macros/s/AKfycbxMQvp2C4Dz6ntvpPoNHzJl0doaknjNmX86VmeI83E64dJ8M25RVl5-t01aqyuZR7PS/exec",
+    title: "YOUR WISHES",
+    caption: "Messages from our loved ones",
+    loadingText: "Đang tải lời chúc...",
+    emptyText: "Chưa có lời chúc nào.",
+    errorText: "Không thể tải lời chúc.",
+    connectErrorText: "Không thể kết nối hệ thống."
+  },
+ 
+  /* ===================================================================
+     11. FORM XÁC NHẬN THAM DỰ
+     =================================================================== */
+  rsvp: {
+    namePlaceholder: "Tên của bạn",
+    messagePlaceholder: "Gửi lời nhắn đến cô dâu chú rể",
+    attendancePlaceholder: "Bạn sẽ đến chứ?",
+    attendanceOptions: ["Tôi chắc chắn sẽ đến", "Xin lỗi, Tôi bận rồi!"],
+    sidePlaceholder: "Bạn là khách mời của ai?",
+    sideOptions: ["Khách mời Cô Dâu", "Khách mời Chú Rể"],
+    companionsPlaceholder: "Số lượng tham dự cùng?"
+  },
+ 
+  /* ===================================================================
+     11b. KIỂU CHỮ CỦA DÒNG TÊN KHÁCH (chỗ {guest} trong inviteLine)
+     Font có sẵn trong thiệp (dán nguyên mã vào fontFamily):
+       "VVZOSGhVGFMSdGY"                         chữ viết tay (giống tên khách ở trang bìa)
+       "QkhOIEJQIEVDQVRIRVJJTkEgTUVESVVNLkURg"   chữ thư pháp (giống tên cô dâu chú rể)
+       "MUZUViWSVAtQlJJVElTSCHUkVFTiUVEY"        chữ in hoa trang trọng
+       "TESQSSRUdVTEFSLlRURg"                    chữ thường (Lora)
+     Để "" = kế thừa từ câu chữ xung quanh.
+     =================================================================== */
+  guestLineStyle: {
+     googleFont: ["Pinyon Script", "Great Vibes"],
+    fontFamily: '"Pinyon Script", "Great Vibes", "TESQSSRUdVTEFSLlRURg", cursive',
+    fontSize: "20px",          // chữ thư pháp nhìn nhỏ hơn chữ thường nên để lớn hơn
+    fontWeight: "400",
+    color: "",                 // vd "#6b4423"; để "" = cùng màu chữ xung quanh
+    letterSpacing: "0px",
+    textTransform: "capitalize",
+    lineHeight: "1.2"
+  },
+ 
+  /* ===================================================================
+     12. CÂU CHỮ CỐ ĐỊNH TRÊN THIỆP
+     =================================================================== */
+  texts: {
+    cover: {
+      invite: "trân trọng kính mời"
+    },
+    content: {
+      saveTheDateSmall: "save the date",
+      countdownTitle:   "begins in...",
+      weAre:            "We are",
+      gettingMarried:   "Getting Married",
+      inviteLine:       "trân trọng kính mời\n{guest}\n đến dự bữa tiệc chung vui cùng gia đình chúng tôi",   // {guest} = tên khách (?name=...), mặc định "Quý Khách"
+      eventIntro:       "được tổ chức vào lúc",   // dòng trên "11:00, chủ nhật"
+      directions:       "Chỉ đường",
+      closing:          "Hân hạnh được đón tiếp!",
+      whereSmall:       "Where",
+      whereBig:         "Love Begins",
+      timelineTitle:    "Timeline",
+      dressCodeTitle:   "Dress code",
+      saveTheDateTitle: "Save the date",
+      loveStory:        "Tình yêu của anh và em là một hành trình kỳ diệu, vượt qua bao thử thách để cùng nhau bước đến ngày trọng đại\n– đám cưới của chúng mình.\nĐám cưới này là lời cam kết chân thành, là sự bắt đầu của một chương mới – nơi chúng ta cùng vun đắp tổ ấm, cùng sẻ chia mọi vui buồn và cùng nắm tay nhau đi đến cuối con đường mang tên hạnh phúc.",
+      rsvpIntro:        "Hãy xác nhận sự có mặt của bạn để chúng mình\nchuẩn bị đón tiếp một cách chu đáo nhất.\nTrân trọng!",
+      rsvpButton:       "GỬI LỜI NHẮN & xác nhận",
+      thankYou:         "Thank you!",
+      footerBrand:      "JMII Wedding Invitation",
+      popupMessage:     "Cảm ơn bạn đã dành thời gian phản hồi.\nChúng mình vô cùng trân quý sự quan tâm của bạn.",
+      popupTitle:       "Thank you!"
+    }
+  },
+ 
+  /* ===================================================================
+     13. ẢNH TRANG TRÍ (hoa, khung, giấy nền...) — thường giữ nguyên.
+     Một key đổi nhiều vị trí cùng lúc. Để "" = giữ nguyên.
+     =================================================================== */
+  decor: {
+    cover: {
+      paperTexture:  "https://w.ladicdn.com/s750x950/6322a62f2dad980013bb5005/thiep-thanh-dat-element_0033_1-20251010160355-v6bgi.png",
+      borderFlower:  "https://w.ladicdn.com/s750x550/6322a62f2dad980013bb5005/elm_0016_vector-smart-object-copy-4-20260730161858-5w9cj.png",
+      photoFrame:    "https://w.ladicdn.com/s700x550/6322a62f2dad980013bb5005/elm_0000s_0003_chatgpt-image-aug-23-2026-02_39_42-am-20260823161520-k75gk.png",
+      heartIcon:     "https://w.ladicdn.com/s400x400/6322a62f2dad980013bb5005/elm_0000s_0000_chatgpt-image-aug-23-2026-01_31_51-am-20260823161520-a7lma.png",
+      tapIcon:       "https://w.ladicdn.com/s400x400/6322a62f2dad980013bb5005/fff-20250420034256-byv87.png",
+      flowerSprayA:  "https://w.ladicdn.com/s450x600/6322a62f2dad980013bb5005/group-1-copy-20260824180757-2kfru.png",
+      flowerSprayB:  "https://w.ladicdn.com/s400x600/6322a62f2dad980013bb5005/group-2-copy-20260824180758-_oxqa.png"
+    },
+    content: {
+      paperTexture:    "https://w.ladicdn.com/s750x950/6322a62f2dad980013bb5005/thiep-thanh-dat-element_0033_1-20251010160355-v6bgi.png",
+      topBorderFlower: "https://w.ladicdn.com/s750x550/6322a62f2dad980013bb5005/vector-smart-object-20260823154006-exf34.png",
+      cornerFlowers:   "https://w.ladicdn.com/s550x700/6322a62f2dad980013bb5005/chatgpt-image-aug-25-2026-01_38_30-am-20260824183718-ju4w5.png",
+      flowerSprayA:    "https://w.ladicdn.com/s450x600/6322a62f2dad980013bb5005/group-1-copy-20260824180757-2kfru.png",
+      flowerSprayB:    "https://w.ladicdn.com/s400x600/6322a62f2dad980013bb5005/group-2-copy-20260824180758-_oxqa.png",
+      leafRibbon:      "https://w.ladicdn.com/s550x500/6322a62f2dad980013bb5005/fff-20260824182259-z1o8d.png",
+      photoFrameBack:  "https://w.ladicdn.com/s650x550/6322a62f2dad980013bb5005/elm_0000s_0003_chatgpt-image-aug-23-2026-02_39_42-am-20260823161520-k75gk.png",
+      photoFrameFront: "https://w.ladicdn.com/s650x550/6322a62f2dad980013bb5005/elm_0000s_0002_1785579634202_1005136413222070383_g5656411048527800034_e187c354984d4457f0b040903c177648-20260823161520-ckkhc.png",
+      heartIcon:       "https://w.ladicdn.com/s400x400/6322a62f2dad980013bb5005/elm_0000s_0000_chatgpt-image-aug-23-2026-01_31_51-am-20260823161520-a7lma.png",
+      plasterTexture:  "https://w.ladicdn.com/s750x1100/67a2c614dc936a00127438e5/thiep-phuong-anh-element_0038_clear-white-plaster-texture-pattern-copy-9-20260626180121-miev4.png",
+      // icon timeline, từ trên xuống dưới
+      timelineIcons: [
+        "https://w.ladicdn.com/s400x350/6322a62f2dad980013bb5005/element_0013_15-20251128150902-8jlgc.png",
+        "https://w.ladicdn.com/s400x400/6322a62f2dad980013bb5005/element_0012_16-20251128150902-x0agu.png",
+        "https://w.ladicdn.com/s400x350/6322a62f2dad980013bb5005/element_0011_17-20251128150902-k7sz7.png",
+        "https://w.ladicdn.com/s400x400/6322a62f2dad980013bb5005/element_0010_18-20251128150902-ioger.png"
+      ]
+    }
+  },
+ 
+  /* ===================================================================
+     14. NÂNG CAO (tuỳ chọn) — chỉnh bất kỳ phần tử nào theo ID trong HTML
+     -------------------------------------------------------------------
+     imageOverrides : { "IMAGE17": "link-anh" }       đổi ảnh nền phần tử
+     textOverrides  : { "HEADLINE20": "chữ\ndòng 2" }  đổi chữ phần tử
+     hide           : ["IMAGE54", "GROUP15"]           ẩn phần tử
+     =================================================================== */
+  advanced: {
+    cover:   { imageOverrides: {}, textOverrides: {}, hide: [] },
+    content: { imageOverrides: {}, textOverrides: {}, hide: [] }
+  }
 };
+ 
