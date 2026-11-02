@@ -153,7 +153,7 @@ window.WEDDING_CONFIG = {
   music: {
     enabled: true,
     playlist: [
-      "music/EmDongYIDo.mp3",
+      "https://lamiwedding.io.vn/storage/music-1/erik-x-kai-dinh-vay-cuoi-official-mv-from-the-wedding-ceremony-of-ms-mp3cutnet.mp3",
       // , "music/bai2.mp3"
     ],
     volume: 1, // 0 → 1
