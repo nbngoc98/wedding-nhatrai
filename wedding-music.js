@@ -46,7 +46,6 @@
     return audio.play().then(function () {
       musicStarted = true;
       isPlaying = true;
-      hideHint();
       updateIcon();
     }).catch(function (err) {
       console.debug("Audio play blocked or failed:", err);
@@ -124,34 +123,6 @@
     safePlay().then(removeGestureListeners).catch(function () { });
   }
   GESTURES.forEach(function (n) { window.addEventListener(n, startOnGesture, { capture: true, passive: true }); });
-
-  /* Gợi ý nổi "Chạm để bật nhạc" — hiện khi trình duyệt chặn tự phát, mất khi nhạc chạy.
-     Đổi chữ: music.hint trong config.js; đặt "" để tắt. */
-  var hintEl = null;
-  // var hintText = cfg.hint === undefined ? "🎵 Chạm vào màn hình để bật nhạc" : String(cfg.hint);
-  // function hideHint() {
-  //   if (hintEl && hintEl.parentNode) hintEl.parentNode.removeChild(hintEl);
-  //   hintEl = null;
-  // }
-  // function showHint() {
-  //   if (musicStarted || hintEl || !hintText) return;
-  //   hintEl = document.createElement("div");
-  //   hintEl.id = "music-hint";
-  //   hintEl.setAttribute("role", "status");
-  //   hintEl.textContent = hintText;
-  //   hintEl.style.cssText = "position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:2147483000;" +
-  //     "max-width:86vw;padding:10px 18px;border-radius:999px;background:rgba(136,29,29,.92);color:#fff;" +
-  //     "font:14px/1.4 Lora,Georgia,serif;text-align:center;box-shadow:0 4px 14px rgba(0,0,0,.25);" +
-  //     "pointer-events:none;animation:musicHintPulse 1.8s ease-in-out infinite";
-  //   if (!document.getElementById("music-hint-style")) {
-  //     var st = document.createElement("style");
-  //     st.id = "music-hint-style";
-  //     st.textContent = "@keyframes musicHintPulse{0%,100%{opacity:1}50%{opacity:.55}}";
-  //     document.head.appendChild(st);
-  //   }
-  //   document.body.appendChild(hintEl);
-  // }
-  // setTimeout(showHint, 1500);
 
   toggleBtn.addEventListener("click", function (ev) {
     ev.preventDefault();
