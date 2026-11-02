@@ -361,8 +361,8 @@
     /* --- Gia đình --- */
     setText("HEADLINE16", cp.groomFamilyLabel);
     setText("HEADLINE18", cp.brideFamilyLabel);
-    if (has(gr.father) || has(gr.mother)) setText("HEADLINE17", [gr.father, gr.mother].filter(has).join("\n"));
-    if (has(br.father) || has(br.mother)) setText("HEADLINE19", [br.father, br.mother].filter(has).join("\n"));
+    // if (has(gr.father) || has(gr.mother)) setText("HEADLINE17", [gr.father, gr.mother].filter(has).join("\n"));
+    // if (has(br.father) || has(br.mother)) setText("HEADLINE19", [br.father, br.mother].filter(has).join("\n"));
 
     /* --- Ngày giờ / địa điểm --- */
     var t = C.texts && C.texts.content || {};
