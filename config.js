@@ -82,7 +82,7 @@ window.WEDDING_CONFIG = {
      =================================================================== */
   timeline: [
     { time: "10:30", title: "Đón Khách" },
-    { time: "11:30", title: "Lễ Nghi" },
+    { time: "11:30", title: "Nghi Lễ" },
     { time: "11:45", title: "Khai tiệc" },
     // { time: "21:30", title: "ÂM NHẠC" }
   ],
