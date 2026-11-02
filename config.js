@@ -97,12 +97,12 @@ window.WEDDING_CONFIG = {
      =================================================================== */
   photos: {
     // --- trang nội dung ---
-    heroPolaroidTop: "image/BAO_6453.jpg", // ảnh nghiêng trên cùng (bìa)
+    heroPolaroidTop: "image/BAO_5924.jpg", // ảnh nghiêng trên cùng (bìa)
     heroPolaroidBottom: "image/BAO_6322.jpg", // ảnh nghiêng dưới (bìa)
     bannerWeAre: "image/BAO_6453.jpg", // nền "We are Getting Married"
     bannerWhereLove: "image/BAO_6183_ngang2.jpg", // nền "Where Love Begins"
     fullPhoto: "image/BAO_5973.jpg", // ảnh lớn ngay sau Timeline
-    saveTheDateFrame: "image/BAO_5924.jpg", // ảnh trong khung ở mục Save the date
+    saveTheDateFrame: "image/BAO_6690_ngang.jpg", // ảnh trong khung ở mục Save the date
     bridePhoto: "image/BAO_8326.jpg", // ảnh cô dâu
     groomPhoto: "image/BAO_6769.jpg", // ảnh chú rể
     thankYouPhoto: "image/BAO_7488_ngang.jpg", // ảnh phần "Thank you!" (cuối trang)
@@ -110,14 +110,32 @@ window.WEDDING_CONFIG = {
 
     // --- album: thêm / bớt bao nhiêu ảnh tuỳ ý (mỗi dòng 1 ảnh) ---
     gallery: [
-      "image/BAO_6453.jpg",
-      "image/BAO_6322.jpg",
-      "image/BAO_6183.jpg",
-      "image/BAO_5973.jpg",
+      "image/BAO_5783.jpg",
       "image/BAO_5924.jpg",
+      "image/BAO_5973.jpg",
+      "image/BAO_6077.jpg",
+      "image/BAO_6183.jpg",
+      "image/BAO_6322.jpg",
+      "image/BAO_6453.jpg",
+      "image/BAO_6647.jpg",
+      "image/BAO_6690.jpg",
       "image/BAO_6769.jpg",
-      "image/BAO_8381.jpg",
+      "image/BAO_7187.jpg",
+      "image/BAO_7378.jpg",
       "image/BAO_7488.jpg",
+      "image/BAO_7522.jpg",
+      "image/BAO_7561.jpg",
+      "image/BAO_7581.jpg",
+      "image/BAO_7636.jpg",
+      "image/BAO_7766.jpg",
+      "image/BAO_7883.jpg",
+      "image/BAO_7978.jpg",
+      "image/BAO_8295.jpg",
+      "image/BAO_8321.jpg",
+      "image/BAO_8326.jpg",
+      "image/BAO_8381.jpg",
+      "image/BAO_8406.jpg",
+      "image/BAO_8416.jpg",
     ],
   },
 

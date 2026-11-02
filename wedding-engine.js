@@ -355,8 +355,8 @@
     /* --- Tên --- */
     setText("HEADLINE7", gr.name);  setText("HEADLINE8", br.name);
     setText("HEADLINE21", gr.name); setText("HEADLINE22", br.name);
-    setText("HEADLINE51", gr.name); setText("HEADLINE52", gr.role);
-    setText("HEADLINE53", br.name); setText("HEADLINE54", br.role);
+    setText("HEADLINE51", br.name); setText("HEADLINE52", br.role);
+    setText("HEADLINE53", gr.name); setText("HEADLINE54", gr.role);
 
     /* --- Gia đình --- */
     setText("HEADLINE16", cp.groomFamilyLabel);
@@ -501,6 +501,70 @@
     st.appendChild(document.createTextNode(css.join("\n")));
     document.body.appendChild(st);   // đặt sau các <style> gốc => thắng cascade
   }
+
+  /* ---------------------------------------------------------------
+     Xoá khung "Powered by LadiPage" (script LadiPage tự chèn lúc chạy, có thể chèn trễ).
+     Tắt bằng config: advanced.removeBadge = false
+  --------------------------------------------------------------- */
+  (function removeLadiBadge() {
+    if (C.advanced && C.advanced.removeBadge === false) return;
+
+    var st = document.createElement("style");
+    st.id = "wedding-badge-style";
+    st.appendChild(document.createTextNode(
+      'body>a[href*="ladipage"],body>div[class*="badge" i][class*="ladi" i],[id*="ladipage-badge" i],[class*="ladipage-badge" i],[class*="ladi-badge" i]{display:none!important}'));
+    document.head.appendChild(st);
+
+    function isPageContent(el) {
+      return el === document.body || el === document.documentElement ||
+        (el.querySelector && el.querySelector(".ladi-wraper, .ladi-section, #music-toggle, #wishes-form"));
+    }
+    function looksLikeBadge(el) {
+      var t = (el.textContent || "").replace(/\s+/g, " ").trim();
+      if (t.length < 80 && /powered\s*by/i.test(t) && /ladi/i.test(t + (el.innerHTML || ""))) return true;
+      var a = el.matches && el.matches('a[href*="ladipage"]') ? el : (el.querySelector && el.querySelector('a[href*="ladipage"]'));
+      return !!a && t.length < 80;
+    }
+    function topBlock(el) {                       // leo lên tới khối ngoài cùng (con trực tiếp của body) nhưng không chạm nội dung thiệp
+      var cur = el;
+      while (cur.parentElement && cur.parentElement !== document.body && !isPageContent(cur.parentElement)) cur = cur.parentElement;
+      return cur;
+    }
+    function scan() {
+      // Huy hiệu chỉ là chữ, tách thành nhiều thẻ con ("Powered by" + "ladipage") và nằm trực tiếp trong body
+      var kids = document.body ? document.body.children : [];
+      for (var k = kids.length - 1; k >= 0; k--) {
+        var kid = kids[k];
+        if (!kid || kid.id === "wedding-badge-style" || /^(SCRIPT|STYLE|NOSCRIPT|LINK|META)$/.test(kid.tagName) || isPageContent(kid)) continue;
+        var kt = (kid.textContent || "").replace(/\s+/g, " ").trim();
+        if (kt.length < 80 && /powered\s*by/i.test(kt) && /ladi/i.test(kt + (kid.innerHTML || ""))) kid.parentNode.removeChild(kid);
+      }
+      var nodes = document.body ? document.body.querySelectorAll("*") : [];
+      for (var i = 0; i < nodes.length; i++) {
+        var el = nodes[i];
+        if (el.id === "wedding-badge-style" || /^(SCRIPT|STYLE|NOSCRIPT|LINK|META)$/.test(el.tagName) || isPageContent(el)) continue;
+        var hit = false;
+        if (el.shadowRoot && /powered\s*by/i.test(el.shadowRoot.textContent || "")) hit = true;
+        else if (!el.children.length || el.tagName === "A") hit = looksLikeBadge(el);
+        if (hit) {
+          var blk = topBlock(el);
+          if (!isPageContent(blk) && blk.parentNode) blk.parentNode.removeChild(blk);
+        }
+      }
+    }
+    var queued = false;
+    function schedule() {
+      if (queued) return;
+      queued = true;
+      (window.requestAnimationFrame || setTimeout)(function () { queued = false; scan(); });
+    }
+    function start() {
+      scan();
+      try { new MutationObserver(schedule).observe(document.body, { childList: true, subtree: true }); } catch (e) { }
+      var n = 0, t = setInterval(function () { scan(); if (++n > 40) clearInterval(t); }, 500);   // dự phòng ~20 giây đầu
+    }
+    if (document.body) start(); else document.addEventListener("DOMContentLoaded", start);
+  })();
 
   window.WeddingGuest = GUEST;
 })();
