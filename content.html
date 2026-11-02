@@ -43,6 +43,476 @@
         href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Mulish:wght@400;700&display=swap"
         as="style" onload="this.onload = null; this.rel = 'stylesheet';">
     <link rel="preload" href="https://w.ladicdn.com/v5/source/ladipagev3.min.js?v=1793353244079" as="script">
+    <style>
+        /* ===== 0. FONT (cần cho SECTION5) ===== */
+        /* Taviraj: nạp qua Google Fonts:
+   <link href="https://fonts.googleapis.com/css2?family=Taviraj:wght@400;700&display=swap" rel="stylesheet"> */
+        @font-face {
+            font-family: "SXRhbGlhbmvLVJlZVsYXIudHRm";
+            /* Italianno */
+            src: url("https://w.ladicdn.com/691804d3a89f3900120ca482/italianno-regular-20260914102243-9lkhd.ttf") format("truetype");
+        }
+
+        @font-face {
+            font-family: "UlnbmFcnVlLnRZg";
+            /* Signature (chữ ký Huy / Nhi) */
+            src: url("https://w.ladicdn.com/6ac45be6c240140013594aed/signatrue-20261020033246-4kywn.ttf") format("truetype");
+        }
+
+        /* LƯU Ý: font "QybWyYWRFyYWvbmQtVmFyaWFibGVGbXdnaHQudHRm" (HEADLINE98/99, chữ "d") trong trang gốc KHÔNG có @font-face => đang fallback. */
+
+        /* ===== 1. BASE (các class nền của LadiPage, đã đổi tên -new) ===== */
+        .ladi-wraper-new {
+            width: 420px;
+            margin: 0 auto;
+            overflow: hidden;
+            font-size: 12px
+        }
+
+        .ladi-wraper-new h1,
+        .ladi-wraper-new h3,
+        .ladi-wraper-new div {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased
+        }
+
+        .ladi-section-new {
+            margin: 0 auto;
+            position: relative
+        }
+
+        .ladi-section-new .ladi-section-background-new {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            overflow: hidden
+        }
+
+        .ladi-container-new {
+            position: relative;
+            margin: 0 auto;
+            height: 100%
+        }
+
+        .ladi-element-new {
+            position: absolute
+        }
+
+        .ladi-box-new {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden
+        }
+
+        .ladi-group-new {
+            position: absolute;
+            width: 100%;
+            height: 100%
+        }
+
+        .ladi-image-new {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden
+        }
+
+        .ladi-image-new .ladi-image-background-new {
+            background-repeat: no-repeat;
+            background-position: left top;
+            background-size: cover;
+            background-attachment: scroll;
+            background-origin: content-box;
+            position: absolute;
+            margin: 0 auto;
+            width: 100%;
+            height: 100%;
+            pointer-events: none
+        }
+
+        .ladi-headline-new {
+            width: 100%;
+            display: inline-block;
+            word-break: break-word;
+            background-size: cover;
+            background-position: center center
+        }
+
+        .ladi-transition-new {
+            transition: all 150ms linear 0s
+        }
+
+        .ladi-animation-new {
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both
+        }
+
+        .ladi-animation-new>* {
+            -webkit-animation-fill-mode: backwards;
+            animation-fill-mode: backwards
+        }
+
+        /* ===== 2. SECTION5 ===== */
+        #SECTION5new {
+            height: 984.15px;
+        }
+
+        /* -- Nền be + ảnh chính + gradient -- */
+        #BOX21new {
+            width: 420px;
+            height: 970.6px;
+            top: 15px;
+            left: 0px;
+        }
+
+        #BOX11new {
+            width: 420px;
+            height: 687.6px;
+            top: 0px;
+            left: 0px;
+        }
+
+        #BOX21new>.ladi-box-new,
+        #BOX11new>.ladi-box-new {
+            border-width: 2px;
+            border-radius: 0px;
+            border-color: rgb(241, 243, 244);
+            background-color: rgb(248, 244, 239);
+        }
+
+        #IMAGE47new {
+            width: 420px;
+            height: 670.094px;
+            top: -1.094px;
+            left: 0px;
+        }
+
+        #IMAGE47new>.ladi-image-new>.ladi-image-background-new {
+            width: 472.727px;
+            height: 832px;
+            top: -51px;
+            left: -1.40909px;
+            background-image: url("image/BAO_6322.jpg");
+        }
+
+        #BOX20new {
+            width: 420px;
+            height: 467px;
+            top: 206px;
+            left: 0px;
+        }
+
+        #BOX20new>.ladi-box-new {
+            border-radius: 0px;
+            -webkit-background-clip: initial;
+            background-image: linear-gradient(rgba(70, 56, 50, 0) 0%, rgb(248, 244, 239) 100%);
+            background-color: initial;
+            background-size: initial;
+            background-origin: initial;
+            background-position: initial;
+            background-repeat: initial;
+            background-attachment: initial;
+        }
+
+        /* -- Text: WE ARE GETTING MARRIED / ngày / trích dẫn -- */
+        #HEADLINE75new {
+            width: 311px;
+            top: 568.157px;
+            left: 45.5px;
+        }
+
+        #HEADLINE75new>.ladi-headline-new {
+            font-family: Taviraj, serif;
+            font-size: 28px;
+            line-height: 1.2;
+            color: rgb(117, 18, 17);
+            text-transform: uppercase;
+            letter-spacing: 0px;
+            text-align: center;
+        }
+
+        #HEADLINE76new {
+            width: 311px;
+            top: 652.628px;
+            left: 45.5px;
+        }
+
+        #HEADLINE76new>.ladi-headline-new {
+            font-family: Taviraj, serif;
+            font-size: 17px;
+            line-height: 1.4;
+            color: rgb(117, 18, 17);
+            text-transform: uppercase;
+            letter-spacing: 0px;
+            text-align: center;
+        }
+
+        #HEADLINE77new {
+            width: 363px;
+            top: 698.628px;
+            left: 28.5px;
+        }
+
+        #HEADLINE77new>.ladi-headline-new {
+            font-family: SXRhbGlhbmvLVJlZVsYXIudHRm;
+            font-size: 21px;
+            line-height: 1.4;
+            color: rgb(117, 18, 17);
+            letter-spacing: 0px;
+            text-align: center;
+        }
+
+        /* -- Tên cô dâu / chú rể -- */
+        #HEADLINE80new {
+            width: 179px;
+            top: 884.628px;
+            left: 17.5px;
+        }
+
+        #HEADLINE80new>.ladi-headline-new {
+            font-family: SXRhbGlhbmvLVJlZVsYXIudHRm;
+            font-size: 21px;
+            line-height: 1;
+            color: rgb(117, 18, 17);
+            letter-spacing: 0px;
+            text-align: center;
+        }
+
+        #HEADLINE81new {
+            width: 179px;
+            top: 885.628px;
+            left: 212.5px;
+        }
+
+        #HEADLINE81new>.ladi-headline-new {
+            font-family: SXRhbGlhbmvLVJlZVsYXIudHRm;
+            font-size: 21px;
+            line-height: 1;
+            color: rgb(117, 18, 17);
+            letter-spacing: 0px;
+            text-align: center;
+        }
+
+        /* -- Chữ ký Huy / Nhi -- */
+        #HEADLINE96new {
+            width: 179px;
+            top: 845.1px;
+            left: 21.5px;
+        }
+
+        #HEADLINE97new {
+            width: 179px;
+            top: 845.1px;
+            left: 212.5px;
+        }
+
+        #HEADLINE96new>.ladi-headline-new,
+        #HEADLINE97new>.ladi-headline-new {
+            font-family: UlnbmFcnVlLnRZg;
+            font-size: 21px;
+            line-height: 1;
+            color: rgb(117, 18, 17);
+            letter-spacing: 0px;
+            text-align: center;
+        }
+
+        /* -- Banner dưới (ảnh sơn dầu + logo) -- */
+        #GROUP49new {
+            width: 420px;
+            height: 212.551px;
+            top: 985.6px;
+            left: 0px;
+        }
+
+        #IMAGE24new {
+            width: 420px;
+            height: 212.551px;
+            top: 0px;
+            left: 0px;
+        }
+
+        #IMAGE24new>.ladi-image-new>.ladi-image-background-new {
+            width: 420px;
+            height: 212.551px;
+            top: 0px;
+            left: 0px;
+            background-image: url("https://w.ladicdn.com/s750x550/691804d3a89f3900120ca482/sondau-20260909045330-9j7hz.jpg");
+        }
+
+        #GROUP10new {
+            width: 79.7103px;
+            height: 110px;
+            top: 56.775px;
+            left: 170.145px;
+        }
+
+        #IMAGE17new {
+            width: 79.7103px;
+            height: 110px;
+            top: 0px;
+            left: 0px;
+        }
+
+        #IMAGE17new>.ladi-image-new>.ladi-image-background-new {
+            width: 79.7103px;
+            height: 110px;
+            top: 0px;
+            left: 0px;
+            background-image: url("https://w.ladicdn.com/s400x450/691804d3a89f3900120ca482/bg_log-20260909042434-7ercn.png");
+        }
+
+        #IMAGE16new {
+            width: 51.0168px;
+            height: 42.2323px;
+            top: 33.8838px;
+            left: 14.3467px;
+        }
+
+        #IMAGE16new>.ladi-image-new>.ladi-image-background-new {
+            width: 51.0168px;
+            height: 42.2323px;
+            top: 0px;
+            left: 0px;
+            background-image: url("https://w.ladicdn.com/s400x350/691804d3a89f3900120ca482/logo-20260909042015-n3t6e.png");
+        }
+
+        /* -- Hoạ tiết góc trái dưới (chữ "d" + pattern) -- */
+        #GROUP67new {
+            width: 103.623px;
+            height: 143px;
+            top: 1020.38px;
+            left: -145.811px;
+        }
+
+        #IMAGE70new {
+            width: 103.623px;
+            height: 143px;
+            top: 0px;
+            left: 0px;
+        }
+
+        #IMAGE70new>.ladi-image-new>.ladi-image-background-new {
+            width: 103.623px;
+            height: 143px;
+            top: 0px;
+            left: 0px;
+            background-image: url("https://w.ladicdn.com/s450x450/6ac45be6c240140013594aed/bg_log-20260617020849-myial-20261007102400-8_2hy.png");
+        }
+
+        #GROUP68new {
+            width: 60.3617px;
+            height: 92.2385px;
+            top: 25.3807px;
+            left: 24.9626px;
+        }
+
+        #HEADLINE98new {
+            width: 35px;
+            top: 15.2385px;
+            left: 20.6715px;
+        }
+
+        #HEADLINE99new {
+            width: 36px;
+            top: 0px;
+            left: 6.32738px;
+        }
+
+        #HEADLINE98new>.ladi-headline-new,
+        #HEADLINE99new>.ladi-headline-new {
+            font-family: QybWyYWRFyYWvbmQtVmFyaWFibGVGbXdnaHQudHRm;
+            font-size: 48px;
+            line-height: 1.6;
+            color: rgb(102, 56, 8);
+            text-transform: uppercase;
+            text-align: left;
+        }
+
+        #IMAGE71new {
+            width: 60.3617px;
+            height: 32.9485px;
+            top: 37.2642px;
+            left: 0px;
+        }
+
+        #IMAGE71new>.ladi-image-new>.ladi-image-background-new {
+            width: 60.3617px;
+            height: 32.9485px;
+            top: 0px;
+            left: 0px;
+            background-image: url("https://w.ladicdn.com/s400x350/6ac45be6c240140013594aed/pattern-20261007102306-ujayz.png");
+        }
+
+        /* ===== 3. ANIMATION (tất cả delay 1s, duration 1s, chạy 1 lần) ===== */
+        #HEADLINE75new.ladi-animation-new>.ladi-headline-new,
+        #HEADLINE76new.ladi-animation-new>.ladi-headline-new,
+        #HEADLINE77new.ladi-animation-new>.ladi-headline-new,
+        #IMAGE16new.ladi-animation-new>.ladi-image-new {
+            animation-name: fadeInDown;
+            animation-delay: 1s;
+            animation-duration: 1s;
+            animation-iteration-count: 1;
+        }
+
+        #HEADLINE80new.ladi-animation-new>.ladi-headline-new,
+        #HEADLINE96new.ladi-animation-new>.ladi-headline-new,
+        #HEADLINE97new.ladi-animation-new>.ladi-headline-new {
+            animation-name: fadeInLeft;
+            animation-delay: 1s;
+            animation-duration: 1s;
+            animation-iteration-count: 1;
+        }
+
+        #HEADLINE81new.ladi-animation-new>.ladi-headline-new {
+            animation-name: fadeInRight;
+            animation-delay: 1s;
+            animation-duration: 1s;
+            animation-iteration-count: 1;
+        }
+
+        @keyframes fadeInDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            0% {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
     <style id="style_ladi" type="text/css">
         a,
         abbr,
@@ -5994,6 +6464,97 @@
                 <div id="IMAGE66" class='ladi-element'>
                     <div class='ladi-image'>
                         <div class="ladi-image-background"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ladi-wraper-new">
+            <div id="SECTION5new" class="ladi-section-new">
+                <div class="ladi-section-background-new"></div>
+                <div class="ladi-container-new">
+                    <div id="BOX21new" class="ladi-element-new">
+                        <div class="ladi-box-new ladi-transition-new"></div>
+                    </div>
+                    <div id="BOX11new" class="ladi-element-new">
+                        <div class="ladi-box-new ladi-transition-new"></div>
+                    </div>
+                    <div id="IMAGE47new" class="ladi-element-new">
+                        <div class="ladi-image-new">
+                            <div class="ladi-image-background-new"></div>
+                        </div>
+                    </div>
+                    <div id="BOX20new" class="ladi-element-new">
+                        <div class="ladi-box-new ladi-transition-new"></div>
+                    </div>
+                    <div id="HEADLINE75new" class="ladi-element-new ladi-animation-new">
+                        <h3 class="ladi-headline-new ladi-transition-new">we are<br>getting married<br></h3>
+                    </div>
+                    <div id="HEADLINE76new" class="ladi-element-new ladi-animation-new">
+                        <h3 class="ladi-headline-new ladi-transition-new">06 . 12 . 2026<br></h3>
+                    </div>
+                    <div id="HEADLINE77new" class="ladi-element-new ladi-animation-new">
+                        <h3 class="ladi-headline-new ladi-transition-new">"Chúng ta cảm ơn quá khứ, chúng ta trân trọng
+                            hiện tại và sẽ cùng nhau viết tiếp tương lai.<br>Với tất cả lòng biết ơn, chúng ta bắt đầu
+                            một chương mới<br>là vợ chồng, là gia đình và là nhà."<br></h3>
+                    </div>
+                    <div id="HEADLINE80new" class="ladi-element-new ladi-animation-new">
+                        <h3 class="ladi-headline-new ladi-transition-new">Nguyễn Bảo Ngọc<br></h3>
+                    </div>
+                    <div id="HEADLINE81new" class="ladi-element-new ladi-animation-new">
+                        <h3 class="ladi-headline-new ladi-transition-new">Huỳnh Hoàng Nhi<br></h3>
+                    </div>
+                    <!-- <div id="GROUP49new" class="ladi-element-new">
+                        <div class="ladi-group-new">
+                            <div id="IMAGE24new" class="ladi-element-new">
+                                <div class="ladi-image-new">
+                                    <div class="ladi-image-background-new"></div>
+                                </div>
+                            </div>
+                            <div id="GROUP10new" class="ladi-element-new">
+                                <div class="ladi-group-new">
+                                    <div id="IMAGE17new" class="ladi-element-new">
+                                        <div class="ladi-image-new">
+                                            <div class="ladi-image-background-new"></div>
+                                        </div>
+                                    </div>
+                                    <div id="IMAGE16new" class="ladi-element-new ladi-animation-new">
+                                        <div class="ladi-image-new">
+                                            <div class="ladi-image-background-new"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div id="HEADLINE96new" class="ladi-element-new ladi-animation-new">
+                        <h3 class="ladi-headline-new ladi-transition-new">Ngọc<br></h3>
+                    </div>
+                    <div id="HEADLINE97new" class="ladi-element-new ladi-animation-new">
+                        <h3 class="ladi-headline-new ladi-transition-new">Nhi<br></h3>
+                    </div>
+                    <div id="GROUP67new" class="ladi-element-new">
+                        <div class="ladi-group-new">
+                            <div id="IMAGE70new" class="ladi-element-new">
+                                <div class="ladi-image-new">
+                                    <div class="ladi-image-background-new"></div>
+                                </div>
+                            </div>
+                            <div id="GROUP68new" class="ladi-element-new">
+                                <div class="ladi-group-new">
+                                    <div id="HEADLINE98new" class="ladi-element-new">
+                                        <h1 class="ladi-headline-new">d</h1>
+                                    </div>
+                                    <div id="HEADLINE99new" class="ladi-element-new">
+                                        <h1 class="ladi-headline-new">d</h1>
+                                    </div>
+                                    <div id="IMAGE71new" class="ladi-element-new">
+                                        <div class="ladi-image-new">
+                                            <div class="ladi-image-background-new"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
