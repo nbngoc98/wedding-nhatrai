@@ -93,16 +93,23 @@
     if (m) m.setAttribute(attr, value);
   }
   function applySite(site) {
-    if (!site) return;
-    if (has(site.title)) {
-      document.title = site.title;
-      setMeta('meta[property="og:title"]', "content", site.title);
-    }
-    if (has(site.favicon)) {
-      var links = document.head.querySelectorAll('link[rel*="icon"]');
-      for (var i = 0; i < links.length; i++) links[i].setAttribute("href", site.favicon);
-    }
+  if (!site && !GUEST.fromUrl) return;
+
+  // Nếu có tên khách từ URL (GUEST.fromUrl === true), tự động ghép tên vào title
+  var pageTitle = GUEST.fromUrl 
+    ? "Kính mời " + GUEST.name + " | Ngọc & Nhi Wedding"
+    : (site && site.title ? site.title : "");
+
+  if (has(pageTitle)) {
+    document.title = pageTitle;
+    setMeta('meta[property="og:title"]', "content", pageTitle);
   }
+
+  if (site && has(site.favicon)) {
+    var links = document.head.querySelectorAll('link[rel*="icon"]');
+    for (var i = 0; i < links.length; i++) links[i].setAttribute("href", site.favicon);
+  }
+}
 
   /* ---------------------------------------------------------------
      Khách mời từ URL
