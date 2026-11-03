@@ -5801,6 +5801,27 @@
         }
     </style>
     <!-- PROTECT_COPY_END -->
+     <script>
+        (function () {
+            var KEY = "ladipage.svg";
+            function killStyle(s) {
+                var t = s.textContent || "";
+                if (t.indexOf(KEY) === -1) return;
+                var m = t.match(/\.([A-Za-z0-9_-]+)\s*\{[^}]*ladipage\.svg/);
+                s.textContent = m ? "." + m[1] + "{display:none!important;visibility:hidden!important;animation:none!important}" : "";
+            }
+            function killEl(el) {
+                if (el.nodeType === 3 && el.parentNode && el.parentNode.tagName === "STYLE") return killStyle(el.parentNode);
+                if (el.nodeType !== 1) return;
+                if (el.tagName === "STYLE") return killStyle(el);
+                var bg = (el.getAttribute("style") || "") + (el.tagName === "A" || el.tagName === "DIV" ? getComputedStyle(el).backgroundImage : "");
+                if (bg.indexOf(KEY) !== -1) el.remove();
+            }
+            new MutationObserver(function (list) {
+                list.forEach(function (m) { m.addedNodes.forEach(killEl); });
+            }).observe(document.documentElement, { childList: true, subtree: true });
+        })();
+    </script>
 </head>
 
 <body class="lazyload" data-wedding-page="content">
@@ -6022,7 +6043,8 @@
                             <p class='ladi-headline ladi-transition'>nhà trai<br></p>
                         </div>
                         <div id="HEADLINE17" class='ladi-element'>
-                            <p class='ladi-headline ladi-transition'>Ông. Nguyễn Mạnh Hùng<br>Bà. Nguyễn Thị Tố Nga<br>KP. Phước Tấn, P. Tân Hải, TP.HCM<br></p>
+                            <p class='ladi-headline ladi-transition'>Ông. Nguyễn Mạnh Hùng<br>Bà. Nguyễn Thị Tố
+                                Nga<br>KP. Phước Tấn, P. Tân Hải, TP.HCM<br></p>
                         </div>
                     </div>
                 </div>
@@ -6032,7 +6054,8 @@
                             <p class='ladi-headline ladi-transition'>nhà gái<br></p>
                         </div>
                         <div id="HEADLINE19" class='ladi-element'>
-                            <p class='ladi-headline ladi-transition'>Ông. Huỳnh Tấn Quang<br>Bà. Lê Thị Hằng<br>Quốc lộ 13, P. Hiệp Bình, TP. HCM<br>
+                            <p class='ladi-headline ladi-transition'>Ông. Huỳnh Tấn Quang<br>Bà. Lê Thị Hằng<br>Quốc lộ
+                                13, P. Hiệp Bình, TP. HCM<br>
                             </p>
                         </div>
                     </div>
@@ -6478,7 +6501,8 @@
                     </div>
                     <div id="IMAGE47new" class="ladi-element-new">
                         <div class="ladi-image-new">
-                            <div class="ladi-image-background-new" style="background-position: center !important;"></div>
+                            <div class="ladi-image-background-new" style="background-position: center !important;">
+                            </div>
                         </div>
                     </div>
                     <div id="BOX20new" class="ladi-element-new">
