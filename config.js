@@ -97,52 +97,52 @@ window.WEDDING_CONFIG = {
      =================================================================== */
   photos: {
     // --- trang nội dung ---
-    heroPolaroidTop: "image/BAO_5924.jpg", // ảnh nghiêng trên cùng (bìa)
-    heroPolaroidBottom: "image/BAO_6322.jpg", // ảnh nghiêng dưới (bìa)
-    bannerWeAre: "image/BAO_6453.jpg", // nền "We are Getting Married"
-    bannerWhereLove: "image/BAO_6183_ngang2.jpg", // nền "Where Love Begins"
-    fullPhoto: "image/BAO_5973.jpg", // ảnh lớn ngay sau Timeline
-    saveTheDateFrame: "image/BAO_6690_ngang.jpg", // ảnh trong khung ở mục Save the date
-    bridePhoto: "image/BAO_8326.jpg", // ảnh cô dâu
-    groomPhoto: "image/BAO_6769.jpg", // ảnh chú rể
-    thankYouPhoto: "image/BAO_7488_ngang.jpg", // ảnh phần "Thank you!" (cuối trang)
-    popupPhoto: "image/BAO_7488_ngang.jpg", // ảnh popup sau khi gửi xác nhận
+    heroPolaroidTop: "https://wedding-image.vercel.app/image/BAO_5924.jpg", // ảnh nghiêng trên cùng (bìa)
+    heroPolaroidBottom: "https://wedding-image.vercel.app/image/BAO_6322.jpg", // ảnh nghiêng dưới (bìa)
+    bannerWeAre: "https://wedding-image.vercel.app/image/BAO_6453.jpg", // nền "We are Getting Married"
+    bannerWhereLove: "https://wedding-image.vercel.app/image/BAO_6183_ngang2.jpg", // nền "Where Love Begins"
+    fullPhoto: "https://wedding-image.vercel.app/image/BAO_5973.jpg", // ảnh lớn ngay sau Timeline
+    saveTheDateFrame: "https://wedding-image.vercel.app/image/BAO_6690_ngang.jpg", // ảnh trong khung ở mục Save the date
+    bridePhoto: "https://wedding-image.vercel.app/image/BAO_8326.jpg", // ảnh cô dâu
+    groomPhoto: "https://wedding-image.vercel.app/image/BAO_6769.jpg", // ảnh chú rể
+    thankYouPhoto: "https://wedding-image.vercel.app/image/BAO_7488_ngang.jpg", // ảnh phần "Thank you!" (cuối trang)
+    popupPhoto: "https://wedding-image.vercel.app/image/BAO_7488_ngang.jpg", // ảnh popup sau khi gửi xác nhận
 
     // --- album: thêm / bớt bao nhiêu ảnh tuỳ ý (mỗi dòng 1 ảnh) ---
     gallery: [
-      "image/BAO_5924.jpg",
-      "image/BAO_5973.jpg",
-      "image/BAO_6077.jpg",
-      "image/BAO_6183.jpg",
-      "image/BAO_6213.jpg",
-      "image/BAO_6322.jpg",
-      "image/BAO_6453.jpg",
-      "image/BAO_6480.jpg",
-      "image/BAO_6639.jpg",
-      "image/BAO_6647.jpg",
-      "image/BAO_6690.jpg",
-      "image/BAO_6769.jpg",
-      "image/BAO_7187.jpg",
-      "image/BAO_7378.jpg",
-      "image/BAO_7466.jpg",
-      "image/BAO_7488.jpg",
-      "image/BAO_7522.jpg",
-      "image/BAO_7561.jpg",
-      "image/BAO_7581.jpg",
-      "image/BAO_7636.jpg",
-      "image/BAO_7766.jpg",
-      "image/BAO_7873.jpg",
-      "image/BAO_7883.jpg",
-      "image/BAO_7978.jpg",
-      "image/BAO_8148.jpg",
-      "image/BAO_8295.jpg",
-      "image/BAO_8321.jpg",
-      "image/BAO_8326.jpg",
-      "image/BAO_8381.jpg",
-      "image/BAO_8406.jpg",
-      "image/BAO_8416.jpg",
-      "image/BAO_8442.jpg",
-      "image/BAO_8501.jpg",
+      "https://wedding-image.vercel.app/image/BAO_5924.jpg",
+      "https://wedding-image.vercel.app/image/BAO_5973.jpg",
+      "https://wedding-image.vercel.app/image/BAO_6077.jpg",
+      "https://wedding-image.vercel.app/image/BAO_6183.jpg",
+      "https://wedding-image.vercel.app/image/BAO_6213.jpg",
+      "https://wedding-image.vercel.app/image/BAO_6322.jpg",
+      "https://wedding-image.vercel.app/image/BAO_6453.jpg",
+      "https://wedding-image.vercel.app/image/BAO_6480.jpg",
+      "https://wedding-image.vercel.app/image/BAO_6639.jpg",
+      "https://wedding-image.vercel.app/image/BAO_6647.jpg",
+      "https://wedding-image.vercel.app/image/BAO_6690.jpg",
+      "https://wedding-image.vercel.app/image/BAO_6769.jpg",
+      "https://wedding-image.vercel.app/image/BAO_7187.jpg",
+      "https://wedding-image.vercel.app/image/BAO_7378.jpg",
+      "https://wedding-image.vercel.app/image/BAO_7466.jpg",
+      "https://wedding-image.vercel.app/image/BAO_7488.jpg",
+      "https://wedding-image.vercel.app/image/BAO_7522.jpg",
+      "https://wedding-image.vercel.app/image/BAO_7561.jpg",
+      "https://wedding-image.vercel.app/image/BAO_7581.jpg",
+      "https://wedding-image.vercel.app/image/BAO_7636.jpg",
+      "https://wedding-image.vercel.app/image/BAO_7766.jpg",
+      "https://wedding-image.vercel.app/image/BAO_7873.jpg",
+      "https://wedding-image.vercel.app/image/BAO_7883.jpg",
+      "https://wedding-image.vercel.app/image/BAO_7978.jpg",
+      "https://wedding-image.vercel.app/image/BAO_8148.jpg",
+      "https://wedding-image.vercel.app/image/BAO_8295.jpg",
+      "https://wedding-image.vercel.app/image/BAO_8321.jpg",
+      "https://wedding-image.vercel.app/image/BAO_8326.jpg",
+      "https://wedding-image.vercel.app/image/BAO_8381.jpg",
+      "https://wedding-image.vercel.app/image/BAO_8406.jpg",
+      "https://wedding-image.vercel.app/image/BAO_8416.jpg",
+      "https://wedding-image.vercel.app/image/BAO_8442.jpg",
+      "https://wedding-image.vercel.app/image/BAO_8501.jpg",
     ],
   },
 
